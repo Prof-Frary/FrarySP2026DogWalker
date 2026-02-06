@@ -31,10 +31,10 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.txtDogOwner = new System.Windows.Forms.TextBox();
-            this.btnCalc = new System.Windows.Forms.Button();
+            this.btnCalculate = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.listBox1 = new System.Windows.Forms.ListBox();
+            this.txtNumWalksPerWeek = new System.Windows.Forms.TextBox();
+            this.lstOut = new System.Windows.Forms.ListBox();
             this.btnClear = new System.Windows.Forms.Button();
             this.btnQuit = new System.Windows.Forms.Button();
             this.SuspendLayout();
@@ -56,7 +56,7 @@
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(61, 13);
             this.label2.TabIndex = 1;
-            this.label2.Text = "Dog Owner";
+            this.label2.Text = "Dog &Owner";
             // 
             // txtDogOwner
             // 
@@ -65,14 +65,15 @@
             this.txtDogOwner.Size = new System.Drawing.Size(172, 20);
             this.txtDogOwner.TabIndex = 2;
             // 
-            // btnCalc
+            // btnCalculate
             // 
-            this.btnCalc.Location = new System.Drawing.Point(38, 283);
-            this.btnCalc.Name = "btnCalc";
-            this.btnCalc.Size = new System.Drawing.Size(75, 54);
-            this.btnCalc.TabIndex = 3;
-            this.btnCalc.Text = "Calculate &Amount";
-            this.btnCalc.UseVisualStyleBackColor = true;
+            this.btnCalculate.Location = new System.Drawing.Point(38, 283);
+            this.btnCalculate.Name = "btnCalculate";
+            this.btnCalculate.Size = new System.Drawing.Size(75, 54);
+            this.btnCalculate.TabIndex = 6;
+            this.btnCalculate.Text = "Calculate &Amount";
+            this.btnCalculate.UseVisualStyleBackColor = true;
+            this.btnCalculate.Click += new System.EventHandler(this.btnCalculate_Click);
             // 
             // label3
             // 
@@ -80,23 +81,24 @@
             this.label3.Location = new System.Drawing.Point(38, 111);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(140, 13);
-            this.label3.TabIndex = 4;
-            this.label3.Text = "Number of Walks Per Week";
+            this.label3.TabIndex = 3;
+            this.label3.Text = "Number of &Walks Per Week";
             // 
-            // textBox1
+            // txtNumWalksPerWeek
             // 
-            this.textBox1.Location = new System.Drawing.Point(202, 108);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(172, 20);
-            this.textBox1.TabIndex = 5;
+            this.txtNumWalksPerWeek.Location = new System.Drawing.Point(202, 108);
+            this.txtNumWalksPerWeek.Name = "txtNumWalksPerWeek";
+            this.txtNumWalksPerWeek.Size = new System.Drawing.Size(172, 20);
+            this.txtNumWalksPerWeek.TabIndex = 4;
             // 
-            // listBox1
+            // lstOut
             // 
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.Location = new System.Drawing.Point(38, 149);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(339, 95);
-            this.listBox1.TabIndex = 6;
+            this.lstOut.FormattingEnabled = true;
+            this.lstOut.Location = new System.Drawing.Point(38, 149);
+            this.lstOut.Name = "lstOut";
+            this.lstOut.Size = new System.Drawing.Size(339, 95);
+            this.lstOut.TabIndex = 6;
+            this.lstOut.TabStop = false;
             // 
             // btnClear
             // 
@@ -106,6 +108,7 @@
             this.btnClear.TabIndex = 7;
             this.btnClear.Text = "&Clear";
             this.btnClear.UseVisualStyleBackColor = true;
+            this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
             // 
             // btnQuit
             // 
@@ -115,6 +118,7 @@
             this.btnQuit.TabIndex = 8;
             this.btnQuit.Text = "&Quit";
             this.btnQuit.UseVisualStyleBackColor = true;
+            this.btnQuit.Click += new System.EventHandler(this.btnQuit_Click);
             // 
             // Form1
             // 
@@ -123,15 +127,16 @@
             this.ClientSize = new System.Drawing.Size(461, 381);
             this.Controls.Add(this.btnQuit);
             this.Controls.Add(this.btnClear);
-            this.Controls.Add(this.listBox1);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.lstOut);
+            this.Controls.Add(this.txtNumWalksPerWeek);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.btnCalc);
+            this.Controls.Add(this.btnCalculate);
             this.Controls.Add(this.txtDogOwner);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Name = "Form1";
             this.Text = "Barbara\'s Dog Walking Service";
+            this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -142,10 +147,10 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtDogOwner;
-        private System.Windows.Forms.Button btnCalc;
+        private System.Windows.Forms.Button btnCalculate;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.ListBox listBox1;
+        private System.Windows.Forms.TextBox txtNumWalksPerWeek;
+        private System.Windows.Forms.ListBox lstOut;
         private System.Windows.Forms.Button btnClear;
         private System.Windows.Forms.Button btnQuit;
     }

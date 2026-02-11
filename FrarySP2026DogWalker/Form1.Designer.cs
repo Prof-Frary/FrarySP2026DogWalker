@@ -64,6 +64,8 @@
             this.txtDogOwner.Name = "txtDogOwner";
             this.txtDogOwner.Size = new System.Drawing.Size(172, 20);
             this.txtDogOwner.TabIndex = 2;
+            this.txtDogOwner.Enter += new System.EventHandler(this.txtDogOwner_Enter);
+            this.txtDogOwner.Leave += new System.EventHandler(this.txtDogOwner_Leave);
             // 
             // btnCalculate
             // 

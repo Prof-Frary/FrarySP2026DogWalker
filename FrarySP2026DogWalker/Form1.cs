@@ -39,12 +39,22 @@ namespace FrarySP2026DogWalker
             txtDogOwner.Clear();
             txtNumWalksPerWeek.Clear();
             lstOut.Items.Clear();
-
-
+            txtDogOwner.Focus();
         }
-        //Event Procedure that will run when the user clicks on the calculate button
+
+        private void txtDogOwner_Enter(object sender, EventArgs e)
+        {
+            txtDogOwner.BackColor = Color.Beige;
+        }
+
+        private void txtDogOwner_Leave(object sender, EventArgs e)
+        {
+            txtDogOwner.BackColor = SystemColors.Window;
+        }
 
 
 
-    }// End of form1
+
+        // End of form1
+    }
 } // end of namespace

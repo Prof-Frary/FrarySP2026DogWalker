@@ -33,7 +33,7 @@
             this.txtDogOwner = new System.Windows.Forms.TextBox();
             this.btnCalculate = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
-            this.txtNumWalksPerWeek = new System.Windows.Forms.TextBox();
+            this.txtServicesPerWeek = new System.Windows.Forms.TextBox();
             this.lstOut = new System.Windows.Forms.ListBox();
             this.btnClear = new System.Windows.Forms.Button();
             this.btnQuit = new System.Windows.Forms.Button();
@@ -43,7 +43,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(88, 18);
+            this.label1.Location = new System.Drawing.Point(73, 18);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(263, 20);
             this.label1.TabIndex = 0;
@@ -52,7 +52,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(117, 66);
+            this.label2.Location = new System.Drawing.Point(52, 93);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(61, 13);
             this.label2.TabIndex = 1;
@@ -60,7 +60,7 @@
             // 
             // txtDogOwner
             // 
-            this.txtDogOwner.Location = new System.Drawing.Point(202, 66);
+            this.txtDogOwner.Location = new System.Drawing.Point(164, 90);
             this.txtDogOwner.Name = "txtDogOwner";
             this.txtDogOwner.Size = new System.Drawing.Size(172, 20);
             this.txtDogOwner.TabIndex = 2;
@@ -80,18 +80,20 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(38, 111);
+            this.label3.Location = new System.Drawing.Point(35, 123);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(140, 13);
+            this.label3.Size = new System.Drawing.Size(102, 13);
             this.label3.TabIndex = 3;
-            this.label3.Text = "Number of &Walks Per Week";
+            this.label3.Text = " &Services Per Week";
             // 
-            // txtNumWalksPerWeek
+            // txtServicesPerWeek
             // 
-            this.txtNumWalksPerWeek.Location = new System.Drawing.Point(202, 108);
-            this.txtNumWalksPerWeek.Name = "txtNumWalksPerWeek";
-            this.txtNumWalksPerWeek.Size = new System.Drawing.Size(172, 20);
-            this.txtNumWalksPerWeek.TabIndex = 4;
+            this.txtServicesPerWeek.Location = new System.Drawing.Point(164, 123);
+            this.txtServicesPerWeek.Name = "txtServicesPerWeek";
+            this.txtServicesPerWeek.Size = new System.Drawing.Size(172, 20);
+            this.txtServicesPerWeek.TabIndex = 4;
+            this.txtServicesPerWeek.Enter += new System.EventHandler(this.txtServicesPerWeek_Enter);
+            this.txtServicesPerWeek.Leave += new System.EventHandler(this.txtServicesPerWeek_Leave);
             // 
             // lstOut
             // 
@@ -126,11 +128,11 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(461, 381);
+            this.ClientSize = new System.Drawing.Size(408, 381);
             this.Controls.Add(this.btnQuit);
             this.Controls.Add(this.btnClear);
             this.Controls.Add(this.lstOut);
-            this.Controls.Add(this.txtNumWalksPerWeek);
+            this.Controls.Add(this.txtServicesPerWeek);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.btnCalculate);
             this.Controls.Add(this.txtDogOwner);
@@ -138,7 +140,6 @@
             this.Controls.Add(this.label1);
             this.Name = "Form1";
             this.Text = "Barbara\'s Dog Walking Service";
-            this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -151,7 +152,7 @@
         private System.Windows.Forms.TextBox txtDogOwner;
         private System.Windows.Forms.Button btnCalculate;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox txtNumWalksPerWeek;
+        private System.Windows.Forms.TextBox txtServicesPerWeek;
         private System.Windows.Forms.ListBox lstOut;
         private System.Windows.Forms.Button btnClear;
         private System.Windows.Forms.Button btnQuit;

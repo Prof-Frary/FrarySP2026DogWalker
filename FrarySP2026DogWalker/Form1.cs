@@ -44,12 +44,6 @@ namespace FrarySP2026DogWalker
         }
 
 
-
-        private void Form1_Load(object sender, EventArgs e)
-        {
-
-        }
-
         private void btnQuit_Click(object sender, EventArgs e)
         {
             //ICA 2
@@ -60,7 +54,7 @@ namespace FrarySP2026DogWalker
         {
             //ICA 2
             txtDogOwner.Clear();
-            txtNumWalksPerWeek.Clear();
+            txtServicesPerWeek.Clear();
             lstOut.Items.Clear();
             txtDogOwner.Focus();
         }
@@ -76,6 +70,14 @@ namespace FrarySP2026DogWalker
             txtDogOwner.BackColor = SystemColors.Window;
         }
 
-      
+        private void txtServicesPerWeek_Leave(object sender, EventArgs e)
+        {
+            txtServicesPerWeek.BackColor = SystemColors.Window;
+        }
+
+        private void txtServicesPerWeek_Enter(object sender, EventArgs e)
+        {
+            txtServicesPerWeek.BackColor = Color.Beige;
+        }
     }
 } // end of namespace

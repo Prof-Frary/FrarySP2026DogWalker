@@ -22,6 +22,7 @@ namespace FrarySP2026DogWalker
             //ICA 3
             // Declare Variables
 
+
             // For string variables just set variable to text property
 
 
@@ -31,6 +32,7 @@ namespace FrarySP2026DogWalker
 
 
             // do calculation
+            // for me that is price of service (walk) multiplied by number of times per week
 
 
 

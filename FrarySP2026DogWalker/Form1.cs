@@ -19,6 +19,25 @@ namespace FrarySP2026DogWalker
 
         private void btnCalculate_Click(object sender, EventArgs e)
         {
+            //ICA 3
+            // Declare Variables
+
+            // For string variables just set variable to text property
+
+
+
+            //for numerics you must convert a string to a number
+            
+
+
+            // do calculation
+
+
+
+            // output to list box and make sure it is formatted
+
+
+
 
         }
 
@@ -31,17 +50,20 @@ namespace FrarySP2026DogWalker
 
         private void btnQuit_Click(object sender, EventArgs e)
         {
+            //ICA 2
             this.Close();
         }
 
         private void btnClear_Click(object sender, EventArgs e)
         {
+            //ICA 2
             txtDogOwner.Clear();
             txtNumWalksPerWeek.Clear();
             lstOut.Items.Clear();
             txtDogOwner.Focus();
         }
 
+        //ICA 2
         private void txtDogOwner_Enter(object sender, EventArgs e)
         {
             txtDogOwner.BackColor = Color.Beige;
@@ -52,9 +74,6 @@ namespace FrarySP2026DogWalker
             txtDogOwner.BackColor = SystemColors.Window;
         }
 
-
-
-
-        // End of form1
+      
     }
 } // end of namespace

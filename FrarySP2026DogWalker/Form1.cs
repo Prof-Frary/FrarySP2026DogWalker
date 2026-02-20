@@ -21,22 +21,27 @@ namespace FrarySP2026DogWalker
         {
             //ICA 3
             // Declare Variables
-
+            // setting this value to a literal FOR NOW
+            decimal servicePrice = 20;
+            // going to come from the user
+            int timesPerWeek;
+            string dogOwner;
+            decimal totalPrice;
 
             // For string variables just set variable to text property
-
-
+            dogOwner = txtDogOwner.Text;
 
             //for numerics you must convert a string to a number
-            
+            timesPerWeek = int.Parse(txtServicesPerWeek.Text);
 
 
             // do calculation
             // for me that is price of service (walk) multiplied by number of times per week
 
-
+            totalPrice = servicePrice * timesPerWeek;
 
             // output to list box and make sure it is formatted
+            lstOut.Items.Add("The total price this week is: " + totalPrice.ToString("C3"));
 
 
 

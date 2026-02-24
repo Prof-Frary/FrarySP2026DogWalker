@@ -40,11 +40,12 @@ namespace FrarySP2026DogWalker
 
             totalPrice = servicePrice * timesPerWeek;
 
-            // output to list box and make sure it is formatted
-            lstOut.Items.Add("The total price this week is: " + totalPrice.ToString("C3"));
 
-
-
+            // output all variables to list box and make sure it is formatted
+            lstOut.Items.Add("The Dog Owner's Name is: " + dogOwner);
+            lstOut.Items.Add("The Service Price is: " + servicePrice.ToString("C"));
+            lstOut.Items.Add("The number of times per week is: " + timesPerWeek.ToString("N0"));
+            lstOut.Items.Add("The total price for the week is: " + totalPrice.ToString("C"));
 
         }
 

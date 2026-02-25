@@ -44,9 +44,11 @@ namespace FrarySP2026DogWalker
             // output all variables to list box and make sure it is formatted
             lstOut.Items.Add("The Dog Owner's Name is: " + dogOwner);
             lstOut.Items.Add("The Service Price is: " + servicePrice.ToString("C"));
-            lstOut.Items.Add("The number of times per week is: " + timesPerWeek.ToString("N0"));
-            lstOut.Items.Add("The total price for the week is: " + totalPrice.ToString("C"));
-
+            lstOut.Items.Add("The Number of Times Per Week is: " + timesPerWeek.ToString("N0"));
+            lstOut.Items.Add("The Total Price for the week is: " + totalPrice.ToString("C"));
+            // this gives the clear button the focus
+            btnClear.Focus();
+            
         }
 
 

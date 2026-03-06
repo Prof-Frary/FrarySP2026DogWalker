@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.ComponentModel.Design;
 using System.Data;
 using System.Drawing;
 using System.Linq;
@@ -12,6 +13,10 @@ namespace FrarySP2026DogWalker
 {
     public partial class Form1 : Form
     {
+        private string dogServiceType = "";
+        const string DOG_WALK = "Dog Walk";
+        const string DOG_PARK = "Dog Park";
+        const string PET_SITTING = "Pet Sitting";
         public Form1()
         {
             InitializeComponent();
@@ -52,6 +57,21 @@ namespace FrarySP2026DogWalker
             // for me that is price of service (walk) multiplied by number of times per week
             if (timesGood && ownerGood)
             { 
+                switch (dogServiceType)
+                {
+                    case DOG_WALK:
+                        servicePrice = 25;
+                        break;
+                    case DOG_PARK:
+                        servicePrice = 30;
+                        break;
+                    case PET_SITTING:
+                        servicePrice = 40;
+                        break;
+                    default:
+                        lstOut.Items.Add("Error in Switch statement - This should not happen");
+                        break;
+                }
                 // if user entered a valid numeric do all regular processing
                 totalPrice = servicePrice * timesPerWeek;
 
@@ -123,6 +143,39 @@ namespace FrarySP2026DogWalker
         private void txtServicesPerWeek_Enter(object sender, EventArgs e)
         {
             txtServicesPerWeek.BackColor = Color.Beige;
+        }
+
+      
+        private void rdoWalk_CheckedChanged(object sender, EventArgs e)
+        {
+          
+            if (rdoWalk.Checked)
+            {
+                dogServiceType = DOG_WALK;
+
+            }
+        }
+
+        private void rdoPark_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rdoPark.Checked)
+            {
+                dogServiceType = DOG_PARK;
+            }
+
+        }
+
+        private void rdoPetSitting_CheckedChanged(object sender, EventArgs e)
+        {
+            if(rdoPetSitting.Checked)
+            {
+                dogServiceType = PET_SITTING;
+            }
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            rdoWalk.Checked = true;
         }
     }
 } // end of namespace

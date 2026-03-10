@@ -11,6 +11,8 @@ using System.Windows.Forms;
 
 namespace FrarySP2026DogWalker
 {
+
+    // FIX - Forgot to reset default radio button
     //ICA 6
     /*
      * Create a variable to hold the logFile name (string)

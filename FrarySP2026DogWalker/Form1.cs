@@ -11,6 +11,35 @@ using System.Windows.Forms;
 
 namespace FrarySP2026DogWalker
 {
+    //ICA 6
+    /*
+     * Create a variable to hold the logFile name (string)
+     * Declare a steamwriter variable
+     * Open the streamwriter to append
+     * Close the streamwriter
+     * in between the open & close output each line going to the list box to the file
+     *      - copy the code then chage the method call
+     *      Make the beginning of the tranaction distinctive & add date and time
+     */
+
+    // ICA 7 
+    /*
+     * Create variables for values set in switch statement
+     * add the configuration file to the bin/debug directory
+     *      - make sure values are in the file
+     *      - declare a varible to hold the name of the configuration file
+     * declare a streamreader variable
+     * Open streamreader to read
+     * Close streamreader
+     * in bettween open & close read the values in from the file 
+     *  (in Form1_Load) one line at a time and store in variables created above
+     * Test each radio button and make sure the correct value gets used in each case
+     * 
+     * Change the value of the config file variable - this will cause the sytem not to find the file
+     * What do we do?
+     * PostTest Loop & openFileDialog
+     * 
+     */
     public partial class Form1 : Form
     {
         private string dogServiceType = "";

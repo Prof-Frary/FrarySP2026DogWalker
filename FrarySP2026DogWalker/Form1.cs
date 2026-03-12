@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.ComponentModel.Design;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,11 +13,12 @@ using System.Windows.Forms;
 namespace FrarySP2026DogWalker
 {
 
-    // FIX - Forgot to reset default radio button
+    // FIX - Forgot to reset default radio button - done
+            // forgot output of radio button  - done
     //ICA 6
     /*
-     * Create a variable to hold the logFile name (string)
-     * Declare a steamwriter variable
+     * Create a variable to hold the logFile name (string) - done
+     * Declare a steamwriter variable -done
      * Open the streamwriter to append
      * Close the streamwriter
      * in between the open & close output each line going to the list box to the file
@@ -37,6 +39,7 @@ namespace FrarySP2026DogWalker
      *  (in Form1_Load) one line at a time and store in variables created above
      * Test each radio button and make sure the correct value gets used in each case
      * 
+     * SHow how to add comment to text file and have the code ignore them
      * Change the value of the config file variable - this will cause the sytem not to find the file
      * What do we do?
      * PostTest Loop & openFileDialog
@@ -48,6 +51,14 @@ namespace FrarySP2026DogWalker
         const string DOG_WALK = "Dog Walk";
         const string DOG_PARK = "Dog Park";
         const string PET_SITTING = "Pet Sitting";
+        //ica 7
+        private decimal dogWalkPrice = 25;
+        private decimal dogParkPrice = 30;
+        private decimal petSittingPrice = 40;
+        //ica 6 - create variable for log file
+        string dwLogFile = "DogWalkerTransaction.log";
+        string dwCfgFile = "DogWalkerConfig1.txt";
+
         public Form1()
         {
             InitializeComponent();
@@ -91,13 +102,13 @@ namespace FrarySP2026DogWalker
                 switch (dogServiceType)
                 {
                     case DOG_WALK:
-                        servicePrice = 25;
+                        servicePrice = dogWalkPrice;
                         break;
                     case DOG_PARK:
-                        servicePrice = 30;
+                        servicePrice = dogParkPrice;
                         break;
                     case PET_SITTING:
-                        servicePrice = 40;
+                        servicePrice = petSittingPrice;
                         break;
                     default:
                         lstOut.Items.Add("Error in Switch statement - This should not happen");
@@ -108,9 +119,34 @@ namespace FrarySP2026DogWalker
 
                 // output all variables to list box and make sure it is formatted
                 lstOut.Items.Add("The Dog Owner's Name is: " + dogOwner);
+                // ica 5
+                lstOut.Items.Add("The service selected is: " + dogServiceType);
+                //ica3
                 lstOut.Items.Add("The Service Price is: " + servicePrice.ToString("C"));
                 lstOut.Items.Add("The Number of Times Per Week is: " + timesPerWeek.ToString("N0"));
                 lstOut.Items.Add("The Total Price for the week is: " + totalPrice.ToString("C"));
+               /*
+                lstOut.Items.Add(DateTime.Now.ToString("D"));
+                lstOut.Items.Add(DateTime.Now.ToString("d"));
+                lstOut.Items.Add(DateTime.Now.ToString("T"));
+                lstOut.Items.Add(DateTime.Now.ToString("t"));
+                lstOut.Items.Add(DateTime.Now.ToString("G"));
+               */
+                //ICA 6 - writing output to a file
+                StreamWriter sw;
+                  // opens the file to append to the end
+                
+                sw = File.AppendText(dwLogFile);
+                sw.WriteLine("************* Beginning of transaction at " +
+                    DateTime.Now.ToString("G") + "*************");
+                sw.WriteLine("The Dog Owner's Name is: " + dogOwner);
+                sw.WriteLine("The service selected is: " + dogServiceType);
+                sw.WriteLine("The Service Price is: " + servicePrice.ToString("C"));
+                sw.WriteLine("The Number of Times Per Week is: " + timesPerWeek.ToString("N0"));
+                sw.WriteLine("The Total Price for the week is: " + totalPrice.ToString("C"));
+                sw.Close();
+
+
                 // this gives the clear button the focus
                 btnClear.Focus();
             } else //error Processing
@@ -153,6 +189,8 @@ namespace FrarySP2026DogWalker
             txtServicesPerWeek.Clear();
             lstOut.Items.Clear();
             txtDogOwner.Focus();
+            //ica 5
+            rdoWalk.Checked = true;
         }
 
         //ICA 2
@@ -207,6 +245,12 @@ namespace FrarySP2026DogWalker
         private void Form1_Load(object sender, EventArgs e)
         {
             rdoWalk.Checked = true;
+            StreamReader sr;
+            sr = File.OpenText(dwCfgFile);
+            dogWalkPrice = decimal.Parse(sr.ReadLine());
+            dogParkPrice = decimal.Parse(sr.ReadLine());    
+            petSittingPrice = decimal.Parse(sr.ReadLine());
+            sr.Close();
         }
     }
 } // end of namespace

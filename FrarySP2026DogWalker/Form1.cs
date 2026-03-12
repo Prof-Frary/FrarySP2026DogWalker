@@ -12,38 +12,40 @@ using System.Windows.Forms;
 
 namespace FrarySP2026DogWalker
 {
-
-    // FIX - Forgot to reset default radio button - done
-            // forgot output of radio button  - done
+    // For 3/12/26
+    // Forgot to reset default radio button - done
+    // Forgot output of radio button  - done
     //ICA 6
     /*
      * Create a variable to hold the logFile name (string) - done
      * Declare a steamwriter variable -done
-     * Open the streamwriter to append
-     * Close the streamwriter
+     * Open the streamwriter to append - done
+     * Close the streamwriter - done
      * in between the open & close output each line going to the list box to the file
-     *      - copy the code then chage the method call
-     *      Make the beginning of the tranaction distinctive & add date and time
+     *      - copy the code then chage the method call - done
+     *      Make the beginning of the tranaction distinctive & add date and time - done
      */
 
     // ICA 7 
     /*
-     * Create variables for values set in switch statement
-     * add the configuration file to the bin/debug directory
-     *      - make sure values are in the file
-     *      - declare a varible to hold the name of the configuration file
-     * declare a streamreader variable
-     * Open streamreader to read
-     * Close streamreader
+     * Create variables for values set in switch statement - done
+     * add the configuration file to the bin/debug directory - done
+     *      - make sure values are in the file - done
+     *      - declare a varible to hold the name of the configuration file - done
+     * declare a streamreader variable - done
+     * Open streamreader to read  - done
+     * Close streamreader - done
      * in bettween open & close read the values in from the file 
-     *  (in Form1_Load) one line at a time and store in variables created above
-     * Test each radio button and make sure the correct value gets used in each case
+     *  (in Form1_Load) one line at a time and store in variables created above  - done 
+     * Test each radio button and make sure the correct value gets used in each case - done 
      * 
      * SHow how to add comment to text file and have the code ignore them
-     * Change the value of the config file variable - this will cause the sytem not to find the file
+     * Change the value of the config file variable - this will cause the system to 
+     *  not to find the file  - done 
+     *  For 3/17/26
      * What do we do?
      * PostTest Loop & openFileDialog
-     * 
+     * Allow for comments
      */
     public partial class Form1 : Form
     {

@@ -246,13 +246,55 @@ namespace FrarySP2026DogWalker
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            const string commentChar = "#";
             rdoWalk.Checked = true;
             StreamReader sr;
-            sr = File.OpenText(dwCfgFile);
-            dogWalkPrice = decimal.Parse(sr.ReadLine());
-            dogParkPrice = decimal.Parse(sr.ReadLine());    
-            petSittingPrice = decimal.Parse(sr.ReadLine());
-            sr.Close();
+            bool fileGood = true;
+            do
+            {
+                try
+                {
+                    // this line throw an exception of it can't find the file
+                    sr = File.OpenText(dwCfgFile);
+                    fileGood = true;
+                    // the post test loops allow for using a cooment character
+                    // as the first character in the config file
+                    string temp = "";
+                    do
+                    {
+                        temp = sr.ReadLine();
+                    } while (temp.Substring(0, 1) == commentChar);
+                    dogWalkPrice = decimal.Parse(temp);
+
+                    do
+                    {
+                        temp = sr.ReadLine();
+                    } while (temp.Substring(0, 1) == commentChar);
+                    dogParkPrice = decimal.Parse(temp);
+
+                    do
+                    {
+                        temp = sr.ReadLine();
+                    } while (temp.Substring(0, 1) == commentChar);
+                    petSittingPrice = decimal.Parse(temp);
+                    sr.Close();
+                }
+                catch (FileNotFoundException fnf)
+                {
+                    fileGood = false;
+                    /*
+                    //fake fix just to figure out what to do next
+                    dwCfgFile = "DogWalkerConfig.txt";
+                    */
+
+
+                    MessageBox.Show(fnf.Message + "Please enter the Configuration File",
+                    "Configuration File not Found");
+                    openFileDialog1.Filter = "Text Files|*.txt|All Files|*.*";
+                    openFileDialog1.ShowDialog(this);
+                    dwCfgFile = openFileDialog1.FileName;
+                }
+            } while (!fileGood);
         }
     }
 } // end of namespace

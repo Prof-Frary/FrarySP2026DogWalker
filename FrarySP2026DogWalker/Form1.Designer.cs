@@ -38,9 +38,10 @@
             this.btnClear = new System.Windows.Forms.Button();
             this.btnQuit = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.rdoWalk = new System.Windows.Forms.RadioButton();
-            this.rdoPark = new System.Windows.Forms.RadioButton();
             this.rdoPetSitting = new System.Windows.Forms.RadioButton();
+            this.rdoPark = new System.Windows.Forms.RadioButton();
+            this.rdoWalk = new System.Windows.Forms.RadioButton();
+            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -141,17 +142,17 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = " ";
             // 
-            // rdoWalk
+            // rdoPetSitting
             // 
-            this.rdoWalk.AutoSize = true;
-            this.rdoWalk.Location = new System.Drawing.Point(8, 19);
-            this.rdoWalk.Name = "rdoWalk";
-            this.rdoWalk.Size = new System.Drawing.Size(96, 17);
-            this.rdoWalk.TabIndex = 0;
-            this.rdoWalk.TabStop = true;
-            this.rdoWalk.Text = "Standard Walk";
-            this.rdoWalk.UseVisualStyleBackColor = true;
-            this.rdoWalk.CheckedChanged += new System.EventHandler(this.rdoWalk_CheckedChanged);
+            this.rdoPetSitting.AutoSize = true;
+            this.rdoPetSitting.Location = new System.Drawing.Point(213, 19);
+            this.rdoPetSitting.Name = "rdoPetSitting";
+            this.rdoPetSitting.Size = new System.Drawing.Size(73, 17);
+            this.rdoPetSitting.TabIndex = 2;
+            this.rdoPetSitting.TabStop = true;
+            this.rdoPetSitting.Text = "Pet Sitting";
+            this.rdoPetSitting.UseVisualStyleBackColor = true;
+            this.rdoPetSitting.CheckedChanged += new System.EventHandler(this.rdoPetSitting_CheckedChanged);
             // 
             // rdoPark
             // 
@@ -165,17 +166,21 @@
             this.rdoPark.UseVisualStyleBackColor = true;
             this.rdoPark.CheckedChanged += new System.EventHandler(this.rdoPark_CheckedChanged);
             // 
-            // rdoPetSitting
+            // rdoWalk
             // 
-            this.rdoPetSitting.AutoSize = true;
-            this.rdoPetSitting.Location = new System.Drawing.Point(213, 19);
-            this.rdoPetSitting.Name = "rdoPetSitting";
-            this.rdoPetSitting.Size = new System.Drawing.Size(73, 17);
-            this.rdoPetSitting.TabIndex = 2;
-            this.rdoPetSitting.TabStop = true;
-            this.rdoPetSitting.Text = "Pet Sitting";
-            this.rdoPetSitting.UseVisualStyleBackColor = true;
-            this.rdoPetSitting.CheckedChanged += new System.EventHandler(this.rdoPetSitting_CheckedChanged);
+            this.rdoWalk.AutoSize = true;
+            this.rdoWalk.Location = new System.Drawing.Point(8, 19);
+            this.rdoWalk.Name = "rdoWalk";
+            this.rdoWalk.Size = new System.Drawing.Size(96, 17);
+            this.rdoWalk.TabIndex = 0;
+            this.rdoWalk.TabStop = true;
+            this.rdoWalk.Text = "Standard Walk";
+            this.rdoWalk.UseVisualStyleBackColor = true;
+            this.rdoWalk.CheckedChanged += new System.EventHandler(this.rdoWalk_CheckedChanged);
+            // 
+            // openFileDialog1
+            // 
+            this.openFileDialog1.FileName = "openFileDialog1";
             // 
             // Form1
             // 
@@ -217,6 +222,7 @@
         private System.Windows.Forms.RadioButton rdoPetSitting;
         private System.Windows.Forms.RadioButton rdoPark;
         private System.Windows.Forms.RadioButton rdoWalk;
+        private System.Windows.Forms.OpenFileDialog openFileDialog1;
     }
 }
 

@@ -47,11 +47,11 @@ namespace FrarySP2026DogWalker
      * PostTest Loop & openFileDialog - done
      * Allow for comments -done
      */
-    /* Classes & overview 
+    /* Classes & overview 3/24
      * ICA 8 - Properties - we need properties to be able to use data across classes/objects
      *  create properties fro each variable in the config file - suggestion - just make the 
      *  first Letter a capital
-     * ICA 9 - Second Form creation - finish form for next class
+     * ICA 9 - Second Form creation - finish form for next class (3/26)
      *  - second form should have a label and textbox for each value 
      *      in the text file as well as a return button and textboxes modifiers 
      *      should be internal or public

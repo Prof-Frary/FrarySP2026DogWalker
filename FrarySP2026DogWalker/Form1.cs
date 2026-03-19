@@ -39,13 +39,28 @@ namespace FrarySP2026DogWalker
      *  (in Form1_Load) one line at a time and store in variables created above  - done 
      * Test each radio button and make sure the correct value gets used in each case - done 
      * 
-     * SHow how to add comment to text file and have the code ignore them
+     * SHow how to add comment to text file and have the code ignore them - done
      * Change the value of the config file variable - this will cause the system to 
      *  not to find the file  - done 
      *  For 3/17/26
      * What do we do?
-     * PostTest Loop & openFileDialog
-     * Allow for comments
+     * PostTest Loop & openFileDialog - done
+     * Allow for comments -done
+     */
+    /* Classes & overview 
+     * ICA 8 - Properties - we need properties to be able to use data across classes/objects
+     *  create properties fro each variable in the config file - suggestion - just make the 
+     *  first Letter a capital
+     * ICA 9 - Second Form creation - finish form for next class
+     *  - second form should have a label and textbox for each value 
+     *      in the text file as well as a return button and textboxes modifiers 
+     *      should be internal or public
+     * add object creation for second form
+     * add menu item on tranaction form to show second form
+     * write code to populate the second form text boxes and show second form
+     * write return code to save values in textboxes to the properties. 
+     * On a failure stay on the second form and redisplay the values
+     * On success, save all the values and hide second form so only first form shows
      */
     public partial class Form1 : Form
     {
@@ -223,7 +238,6 @@ namespace FrarySP2026DogWalker
             if (rdoWalk.Checked)
             {
                 dogServiceType = DOG_WALK;
-
             }
         }
 
@@ -246,7 +260,7 @@ namespace FrarySP2026DogWalker
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            const string commentChar = "#";
+            const string COMMENT_CHAR = "#";
             rdoWalk.Checked = true;
             StreamReader sr;
             bool fileGood = true;
@@ -263,19 +277,19 @@ namespace FrarySP2026DogWalker
                     do
                     {
                         temp = sr.ReadLine();
-                    } while (temp.Substring(0, 1) == commentChar);
+                    } while (temp.Substring(0, 1) == COMMENT_CHAR);
                     dogWalkPrice = decimal.Parse(temp);
 
                     do
                     {
                         temp = sr.ReadLine();
-                    } while (temp.Substring(0, 1) == commentChar);
+                    } while (temp.Substring(0, 1) == COMMENT_CHAR);
                     dogParkPrice = decimal.Parse(temp);
 
                     do
                     {
                         temp = sr.ReadLine();
-                    } while (temp.Substring(0, 1) == commentChar);
+                    } while (temp.Substring(0, 1) == COMMENT_CHAR);
                     petSittingPrice = decimal.Parse(temp);
                     sr.Close();
                 }
@@ -287,9 +301,12 @@ namespace FrarySP2026DogWalker
                     dwCfgFile = "DogWalkerConfig.txt";
                     */
 
-
-                    MessageBox.Show(fnf.Message + "Please enter the Configuration File",
+                    // MessageBox allowed here because there is no form yet so user would
+                    // have no idea why the openFileDialog is coming up
+                    //fnf.Message is the message from the exception - \n is a new line character
+                    MessageBox.Show(fnf.Message + "\n\nPlease enter the Configuration File",
                     "Configuration File not Found");
+                    // OpenFileDialog Must be added from the toolbox!!!
                     openFileDialog1.Filter = "Text Files|*.txt|All Files|*.*";
                     openFileDialog1.ShowDialog(this);
                     dwCfgFile = openFileDialog1.FileName;

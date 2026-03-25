@@ -74,7 +74,7 @@ namespace FrarySP2026DogWalker
         private decimal petSittingPrice = 40;
         //ica 6 - create variable for log file
         string dwLogFile = "DogWalkerTransaction.log";
-        string dwCfgFile = "DogWalkerConfig1.txt";
+        string dwCfgFile = "DogWalkerConfig.txt";
         private Form2 settingForm;
         public Form1()
         {

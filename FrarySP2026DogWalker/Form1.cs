@@ -75,14 +75,32 @@ namespace FrarySP2026DogWalker
         //ica 6 - create variable for log file
         string dwLogFile = "DogWalkerTransaction.log";
         string dwCfgFile = "DogWalkerConfig1.txt";
-
+        private Form2 settingForm;
         public Form1()
         {
             InitializeComponent();
+            settingForm = new Form2();
         }
 
+        //Add Properties for service Prices
+        internal decimal DogWalkPrice
+        {
+            get { return dogWalkPrice; }
+            set { dogWalkPrice = value; }
+        }
+        internal decimal DogParkPrice
+        {
+            get { return dogParkPrice; }
+            set { dogParkPrice = value; }
+        }
+        internal decimal PetSittingPrice
+        {
+            get { return petSittingPrice; }
+            set { petSittingPrice = value; }
+        }
         private void btnCalculate_Click(object sender, EventArgs e)
         {
+           
             //ICA 3
             // Declare Variables
             // setting this value to a literal FOR NOW
@@ -119,13 +137,13 @@ namespace FrarySP2026DogWalker
                 switch (dogServiceType)
                 {
                     case DOG_WALK:
-                        servicePrice = dogWalkPrice;
+                        servicePrice = DogWalkPrice;
                         break;
                     case DOG_PARK:
-                        servicePrice = dogParkPrice;
+                        servicePrice = DogParkPrice;
                         break;
                     case PET_SITTING:
-                        servicePrice = petSittingPrice;
+                        servicePrice = PetSittingPrice;
                         break;
                     default:
                         lstOut.Items.Add("Error in Switch statement - This should not happen");
@@ -312,6 +330,11 @@ namespace FrarySP2026DogWalker
                     dwCfgFile = openFileDialog1.FileName;
                 }
             } while (!fileGood);
+        }
+
+        private void settingsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            settingForm.ShowDialog();
         }
     }
 } // end of namespace

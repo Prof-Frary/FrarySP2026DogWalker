@@ -75,14 +75,18 @@ namespace FrarySP2026DogWalker
         //ica 6 - create variable for log file
         string dwLogFile = "DogWalkerTransaction.log";
         string dwCfgFile = "DogWalkerConfig.txt";
+        // ICA 9 - this declares the form2 variable
         private Form2 settingForm;
         public Form1()
         {
             InitializeComponent();
+            // ICA 9 - this creates the form 2 object
             settingForm = new Form2();
         }
-
+        //ICA 8 Properties
         //Add Properties for service Prices
+        //properties start with uppercase lettere
+        // remember variables start with lowercase
         internal decimal DogWalkPrice
         {
             get { return dogWalkPrice; }
@@ -194,8 +198,7 @@ namespace FrarySP2026DogWalker
                 if (!timesGood)
                 {
                     lstOut.Items.Add("The number of times per week was not entered as a whole number");
-                }
-                
+                }                
                     
             }
             
@@ -251,8 +254,7 @@ namespace FrarySP2026DogWalker
 
       
         private void rdoWalk_CheckedChanged(object sender, EventArgs e)
-        {
-          
+        {          
             if (rdoWalk.Checked)
             {
                 dogServiceType = DOG_WALK;

@@ -31,11 +31,11 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.label4 = new System.Windows.Forms.Label();
+            this.txtDogWalkerPrice = new System.Windows.Forms.TextBox();
+            this.txtDogParkPrice = new System.Windows.Forms.TextBox();
+            this.txtPetSitPrice = new System.Windows.Forms.TextBox();
+            this.btnReturn = new System.Windows.Forms.Button();
+            this.lblTitle = new System.Windows.Forms.Label();
             this.lblError = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
@@ -66,53 +66,57 @@
             this.label3.TabIndex = 2;
             this.label3.Text = "Pet Sitting Price";
             // 
-            // textBox1
+            // txtDogWalkerPrice
             // 
-            this.textBox1.Location = new System.Drawing.Point(128, 48);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 20);
-            this.textBox1.TabIndex = 3;
+            this.txtDogWalkerPrice.Location = new System.Drawing.Point(128, 48);
+            this.txtDogWalkerPrice.Name = "txtDogWalkerPrice";
+            this.txtDogWalkerPrice.Size = new System.Drawing.Size(100, 20);
+            this.txtDogWalkerPrice.TabIndex = 3;
             // 
-            // textBox2
+            // txtDogParkPrice
             // 
-            this.textBox2.Location = new System.Drawing.Point(128, 82);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(100, 20);
-            this.textBox2.TabIndex = 4;
+            this.txtDogParkPrice.Location = new System.Drawing.Point(128, 82);
+            this.txtDogParkPrice.Name = "txtDogParkPrice";
+            this.txtDogParkPrice.Size = new System.Drawing.Size(100, 20);
+            this.txtDogParkPrice.TabIndex = 4;
             // 
-            // textBox3
+            // txtPetSitPrice
             // 
-            this.textBox3.Location = new System.Drawing.Point(128, 126);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(100, 20);
-            this.textBox3.TabIndex = 5;
+            this.txtPetSitPrice.Location = new System.Drawing.Point(128, 126);
+            this.txtPetSitPrice.Name = "txtPetSitPrice";
+            this.txtPetSitPrice.Size = new System.Drawing.Size(100, 20);
+            this.txtPetSitPrice.TabIndex = 5;
             // 
-            // button1
+            // btnReturn
             // 
-            this.button1.Location = new System.Drawing.Point(102, 183);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 6;
-            this.button1.Text = "&Return";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnReturn.Location = new System.Drawing.Point(102, 183);
+            this.btnReturn.Name = "btnReturn";
+            this.btnReturn.Size = new System.Drawing.Size(75, 23);
+            this.btnReturn.TabIndex = 6;
+            this.btnReturn.Text = "&Return";
+            this.btnReturn.UseVisualStyleBackColor = true;
             // 
-            // label4
+            // lblTitle
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(99, 20);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(72, 13);
-            this.label4.TabIndex = 7;
-            this.label4.Text = "Price Settings";
+            this.lblTitle.AutoSize = true;
+            this.lblTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTitle.ForeColor = System.Drawing.Color.Blue;
+            this.lblTitle.Location = new System.Drawing.Point(84, 19);
+            this.lblTitle.Name = "lblTitle";
+            this.lblTitle.Size = new System.Drawing.Size(103, 16);
+            this.lblTitle.TabIndex = 7;
+            this.lblTitle.Text = "Price Settings";
             // 
             // lblError
             // 
             this.lblError.AutoSize = true;
+            this.lblError.ForeColor = System.Drawing.Color.Red;
             this.lblError.Location = new System.Drawing.Point(84, 235);
             this.lblError.Name = "lblError";
             this.lblError.Size = new System.Drawing.Size(117, 13);
             this.lblError.TabIndex = 8;
             this.lblError.Text = "Possible Error Message";
+            this.lblError.Visible = false;
             // 
             // Form2
             // 
@@ -120,11 +124,11 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(280, 337);
             this.Controls.Add(this.lblError);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.lblTitle);
+            this.Controls.Add(this.btnReturn);
+            this.Controls.Add(this.txtPetSitPrice);
+            this.Controls.Add(this.txtDogParkPrice);
+            this.Controls.Add(this.txtDogWalkerPrice);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
@@ -140,11 +144,11 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.TextBox txtDogWalkerPrice;
+        private System.Windows.Forms.TextBox txtDogParkPrice;
+        private System.Windows.Forms.TextBox txtPetSitPrice;
+        private System.Windows.Forms.Button btnReturn;
+        private System.Windows.Forms.Label lblTitle;
         private System.Windows.Forms.Label lblError;
     }
 }

@@ -73,15 +73,15 @@ namespace FrarySP2026DogWalker
         private decimal dogParkPrice = 30;
         private decimal petSittingPrice = 40;
         //ica 6 - create variable for log file
-        string dwLogFile = "DogWalkerTransaction.log";
-        string dwCfgFile = "DogWalkerConfig.txt";
+        private string dwLogFile = "DogWalkerTransaction.log";
+        private string dwCfgFile = "DogWalkerConfig.txt";
         // ICA 9 - this declares the form2 variable
         private Form2 settingForm;
         public Form1()
         {
             InitializeComponent();
             // ICA 9 - this creates the form 2 object
-            settingForm = new Form2();
+            settingForm = new Form2(this);
         }
         //ICA 8 Properties
         //Add Properties for service Prices
@@ -102,9 +102,14 @@ namespace FrarySP2026DogWalker
             get { return petSittingPrice; }
             set { petSittingPrice = value; }
         }
+        internal string ConfigFile
+        {
+            get { return dwCfgFile; }
+            set { dwCfgFile = value; }
+        }
         private void btnCalculate_Click(object sender, EventArgs e)
         {
-           
+
             //ICA 3
             // Declare Variables
             // setting this value to a literal FOR NOW
@@ -137,7 +142,7 @@ namespace FrarySP2026DogWalker
             // do calculation
             // for me that is price of service (walk) multiplied by number of times per week
             if (timesGood && ownerGood)
-            { 
+            {
                 switch (dogServiceType)
                 {
                     case DOG_WALK:
@@ -164,17 +169,17 @@ namespace FrarySP2026DogWalker
                 lstOut.Items.Add("The Service Price is: " + servicePrice.ToString("C"));
                 lstOut.Items.Add("The Number of Times Per Week is: " + timesPerWeek.ToString("N0"));
                 lstOut.Items.Add("The Total Price for the week is: " + totalPrice.ToString("C"));
-               /*
-                lstOut.Items.Add(DateTime.Now.ToString("D"));
-                lstOut.Items.Add(DateTime.Now.ToString("d"));
-                lstOut.Items.Add(DateTime.Now.ToString("T"));
-                lstOut.Items.Add(DateTime.Now.ToString("t"));
-                lstOut.Items.Add(DateTime.Now.ToString("G"));
-               */
+                /*
+                 lstOut.Items.Add(DateTime.Now.ToString("D"));
+                 lstOut.Items.Add(DateTime.Now.ToString("d"));
+                 lstOut.Items.Add(DateTime.Now.ToString("T"));
+                 lstOut.Items.Add(DateTime.Now.ToString("t"));
+                 lstOut.Items.Add(DateTime.Now.ToString("G"));
+                */
                 //ICA 6 - writing output to a file
                 StreamWriter sw;
-                  // opens the file to append to the end
-                
+                // opens the file to append to the end
+
                 sw = File.AppendText(dwLogFile);
                 sw.WriteLine("************* Beginning of transaction at " +
                     DateTime.Now.ToString("G") + "*************");
@@ -188,7 +193,8 @@ namespace FrarySP2026DogWalker
 
                 // this gives the clear button the focus
                 btnClear.Focus();
-            } else //error Processing
+            }
+            else //error Processing
             {
                 if (!ownerGood)
                 {
@@ -198,10 +204,10 @@ namespace FrarySP2026DogWalker
                 if (!timesGood)
                 {
                     lstOut.Items.Add("The number of times per week was not entered as a whole number");
-                }                
-                    
+                }
+
             }
-            
+
         }
 
 
@@ -252,9 +258,9 @@ namespace FrarySP2026DogWalker
             txtServicesPerWeek.BackColor = Color.Beige;
         }
 
-      
+
         private void rdoWalk_CheckedChanged(object sender, EventArgs e)
-        {          
+        {
             if (rdoWalk.Checked)
             {
                 dogServiceType = DOG_WALK;
@@ -272,7 +278,7 @@ namespace FrarySP2026DogWalker
 
         private void rdoPetSitting_CheckedChanged(object sender, EventArgs e)
         {
-            if(rdoPetSitting.Checked)
+            if (rdoPetSitting.Checked)
             {
                 dogServiceType = PET_SITTING;
             }
@@ -334,8 +340,19 @@ namespace FrarySP2026DogWalker
             } while (!fileGood);
         }
 
+        internal void setSettings()
+        {
+            // text boxes on the second form must be populated before 
+            // the form is shown
+            settingForm.txtDogWalkerPrice.Text = DogWalkPrice.ToString();
+            settingForm.txtDogParkPrice.Text = DogParkPrice.ToString();
+            settingForm.txtPetSitPrice.Text = PetSittingPrice.ToString();
+        }
+
         private void settingsToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            setSettings();
+            // shows the second form
             settingForm.ShowDialog();
         }
     }

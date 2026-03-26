@@ -1,7 +1,3 @@
-# these tare comments
-#they represent the three do services
-#this is the dog walk price
-250
-#this is the dog park price
-300
-400
+30
+35
+45

@@ -95,6 +95,7 @@
             this.btnReturn.TabIndex = 6;
             this.btnReturn.Text = "&Return";
             this.btnReturn.UseVisualStyleBackColor = true;
+            this.btnReturn.Click += new System.EventHandler(this.btnReturn_Click);
             // 
             // lblTitle
             // 
@@ -144,11 +145,11 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox txtDogWalkerPrice;
-        private System.Windows.Forms.TextBox txtDogParkPrice;
-        private System.Windows.Forms.TextBox txtPetSitPrice;
         private System.Windows.Forms.Button btnReturn;
         private System.Windows.Forms.Label lblTitle;
         private System.Windows.Forms.Label lblError;
+        internal System.Windows.Forms.TextBox txtDogWalkerPrice;
+        internal System.Windows.Forms.TextBox txtDogParkPrice;
+        internal System.Windows.Forms.TextBox txtPetSitPrice;
     }
 }

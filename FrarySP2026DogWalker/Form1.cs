@@ -118,96 +118,121 @@ namespace FrarySP2026DogWalker
             int timesPerWeek;
             string dogOwner;
             decimal totalPrice;
+            string firstName = "";
+            string lastName = "";
+            char c = 's';
+            int i = (int)c; //converts a character to its numeric value
+            c = (char) i; // converts an interger to its ascii char
             //ica 4
             //timesGood is an indication as to whether
             //timesPerWeek was entered as a number 
             bool timesGood, ownerGood;
 
             // For string variables just set variable to text property
-            dogOwner = txtDogOwner.Text;
-            if (dogOwner == "")
+            dogOwner = txtDogOwner.Text.Trim();
+            // Strings always are surrounded by double quotes ""
+            string name = "George Washington";
+            //             01234567890123456
+            //strings have methods associated with them that allow you
+            // to do things like find the length of the string,
+            // change case, etc.
+            // each letter in the string can be located by its index as shown above
+           
+            int len = name.Length;// this will return the length of the string - in this case 17
+            int posSpace = dogOwner.IndexOf(" ");// this will return the position of the first space - in this case 6
+            if (posSpace != -1)
             {
-                ownerGood = false;
+                firstName = dogOwner.Substring(0, posSpace);
+                lastName = dogOwner.Substring(posSpace + 1).Trim();
+
+                if (dogOwner == "")
+                {
+                    ownerGood = false;
+                }
+                else
+                {
+                    ownerGood = true;
+                }
+                // alternate way to do above if 
+                // ownerGood = dogOwner != "";
+
+                //for numerics you must convert a string to a number
+                //  timesPerWeek = int.Parse(txtServicesPerWeek.Text);
+                timesGood = int.TryParse(txtServicesPerWeek.Text, out timesPerWeek);
+                // do calculation
+                // for me that is price of service (walk) multiplied by number of times per week
+                if (timesGood && ownerGood)
+                {
+                    switch (dogServiceType)
+                    {
+                        case DOG_WALK:
+                            servicePrice = DogWalkPrice;
+                            break;
+                        case DOG_PARK:
+                            servicePrice = DogParkPrice;
+                            break;
+                        case PET_SITTING:
+                            servicePrice = PetSittingPrice;
+                            break;
+                        default:
+                            lstOut.Items.Add("Error in Switch statement - This should not happen");
+                            break;
+                    }
+                    // if user entered a valid numeric do all regular processing
+                    totalPrice = servicePrice * timesPerWeek;
+
+                    // output all variables to list box and make sure it is formatted
+                    lstOut.Items.Add("The Dog Owner's Name is: " + dogOwner);
+                    lstOut.Items.Add("First Name: " + firstName);
+                    lstOut.Items.Add("Last Name: " + lastName);
+                    // ica 5
+                    lstOut.Items.Add("The service selected is: " + dogServiceType);
+                    //ica3
+                    lstOut.Items.Add("The Service Price is: " + servicePrice.ToString("C"));
+                    lstOut.Items.Add("The Number of Times Per Week is: " + timesPerWeek.ToString("N0"));
+                    lstOut.Items.Add("The Total Price for the week is: " + totalPrice.ToString("C"));
+                    /*
+                     lstOut.Items.Add(DateTime.Now.ToString("D"));
+                     lstOut.Items.Add(DateTime.Now.ToString("d"));
+                     lstOut.Items.Add(DateTime.Now.ToString("T"));
+                     lstOut.Items.Add(DateTime.Now.ToString("t"));
+                     lstOut.Items.Add(DateTime.Now.ToString("G"));
+                    */
+                    //ICA 6 - writing output to a file
+                    StreamWriter sw;
+                    // opens the file to append to the end
+
+                    sw = File.AppendText(dwLogFile);
+                    sw.WriteLine("************* Beginning of transaction at " +
+                        DateTime.Now.ToString("G") + "*************");
+                    sw.WriteLine("The Dog Owner's Name is: " + dogOwner);
+                    sw.WriteLine("The service selected is: " + dogServiceType);
+                    sw.WriteLine("The Service Price is: " + servicePrice.ToString("C"));
+                    sw.WriteLine("The Number of Times Per Week is: " + timesPerWeek.ToString("N0"));
+                    sw.WriteLine("The Total Price for the week is: " + totalPrice.ToString("C"));
+                    sw.Close();
+
+
+                    // this gives the clear button the focus
+                    btnClear.Focus();
+                }
+                else //error Processing
+                {
+                    if (!ownerGood)
+                    {
+                        lstOut.Items.Add(" Please enter a value for Dog Owner");
+                    }
+
+                    if (!timesGood)
+                    {
+                        lstOut.Items.Add("The number of times per week was not entered as a whole number");
+                    }
+
+                }
             }
             else
             {
-                ownerGood = true;
             }
-            // alternate way to do above if 
-            // ownerGood = dogOwner != "";
-
-            //for numerics you must convert a string to a number
-            //  timesPerWeek = int.Parse(txtServicesPerWeek.Text);
-            timesGood = int.TryParse(txtServicesPerWeek.Text, out timesPerWeek);
-            // do calculation
-            // for me that is price of service (walk) multiplied by number of times per week
-            if (timesGood && ownerGood)
-            {
-                switch (dogServiceType)
-                {
-                    case DOG_WALK:
-                        servicePrice = DogWalkPrice;
-                        break;
-                    case DOG_PARK:
-                        servicePrice = DogParkPrice;
-                        break;
-                    case PET_SITTING:
-                        servicePrice = PetSittingPrice;
-                        break;
-                    default:
-                        lstOut.Items.Add("Error in Switch statement - This should not happen");
-                        break;
-                }
-                // if user entered a valid numeric do all regular processing
-                totalPrice = servicePrice * timesPerWeek;
-
-                // output all variables to list box and make sure it is formatted
-                lstOut.Items.Add("The Dog Owner's Name is: " + dogOwner);
-                // ica 5
-                lstOut.Items.Add("The service selected is: " + dogServiceType);
-                //ica3
-                lstOut.Items.Add("The Service Price is: " + servicePrice.ToString("C"));
-                lstOut.Items.Add("The Number of Times Per Week is: " + timesPerWeek.ToString("N0"));
-                lstOut.Items.Add("The Total Price for the week is: " + totalPrice.ToString("C"));
-                /*
-                 lstOut.Items.Add(DateTime.Now.ToString("D"));
-                 lstOut.Items.Add(DateTime.Now.ToString("d"));
-                 lstOut.Items.Add(DateTime.Now.ToString("T"));
-                 lstOut.Items.Add(DateTime.Now.ToString("t"));
-                 lstOut.Items.Add(DateTime.Now.ToString("G"));
-                */
-                //ICA 6 - writing output to a file
-                StreamWriter sw;
-                // opens the file to append to the end
-
-                sw = File.AppendText(dwLogFile);
-                sw.WriteLine("************* Beginning of transaction at " +
-                    DateTime.Now.ToString("G") + "*************");
-                sw.WriteLine("The Dog Owner's Name is: " + dogOwner);
-                sw.WriteLine("The service selected is: " + dogServiceType);
-                sw.WriteLine("The Service Price is: " + servicePrice.ToString("C"));
-                sw.WriteLine("The Number of Times Per Week is: " + timesPerWeek.ToString("N0"));
-                sw.WriteLine("The Total Price for the week is: " + totalPrice.ToString("C"));
-                sw.Close();
-
-
-                // this gives the clear button the focus
-                btnClear.Focus();
-            }
-            else //error Processing
-            {
-                if (!ownerGood)
-                {
-                    lstOut.Items.Add(" Please enter a value for Dog Owner");
-                }
-
-                if (!timesGood)
-                {
-                    lstOut.Items.Add("The number of times per week was not entered as a whole number");
-                }
-
-            }
-
         }
 
 

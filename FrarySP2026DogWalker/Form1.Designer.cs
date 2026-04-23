@@ -44,6 +44,8 @@
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.settingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.printLogFileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.quitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBox1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -78,7 +80,7 @@
             // 
             // btnCalculate
             // 
-            this.btnCalculate.Location = new System.Drawing.Point(38, 283);
+            this.btnCalculate.Location = new System.Drawing.Point(40, 325);
             this.btnCalculate.Name = "btnCalculate";
             this.btnCalculate.Size = new System.Drawing.Size(75, 54);
             this.btnCalculate.TabIndex = 6;
@@ -109,13 +111,13 @@
             this.lstOut.FormattingEnabled = true;
             this.lstOut.Location = new System.Drawing.Point(32, 179);
             this.lstOut.Name = "lstOut";
-            this.lstOut.Size = new System.Drawing.Size(339, 95);
+            this.lstOut.Size = new System.Drawing.Size(339, 134);
             this.lstOut.TabIndex = 6;
             this.lstOut.TabStop = false;
             // 
             // btnClear
             // 
-            this.btnClear.Location = new System.Drawing.Point(158, 283);
+            this.btnClear.Location = new System.Drawing.Point(160, 325);
             this.btnClear.Name = "btnClear";
             this.btnClear.Size = new System.Drawing.Size(75, 54);
             this.btnClear.TabIndex = 7;
@@ -125,7 +127,7 @@
             // 
             // btnQuit
             // 
-            this.btnQuit.Location = new System.Drawing.Point(276, 283);
+            this.btnQuit.Location = new System.Drawing.Point(278, 325);
             this.btnQuit.Name = "btnQuit";
             this.btnQuit.Size = new System.Drawing.Size(75, 54);
             this.btnQuit.TabIndex = 8;
@@ -188,7 +190,9 @@
             // menuStrip1
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.settingsToolStripMenuItem});
+            this.settingsToolStripMenuItem,
+            this.printLogFileToolStripMenuItem,
+            this.quitToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(408, 24);
@@ -201,6 +205,20 @@
             this.settingsToolStripMenuItem.Size = new System.Drawing.Size(61, 20);
             this.settingsToolStripMenuItem.Text = "&Settings";
             this.settingsToolStripMenuItem.Click += new System.EventHandler(this.settingsToolStripMenuItem_Click);
+            // 
+            // printLogFileToolStripMenuItem
+            // 
+            this.printLogFileToolStripMenuItem.Name = "printLogFileToolStripMenuItem";
+            this.printLogFileToolStripMenuItem.Size = new System.Drawing.Size(88, 20);
+            this.printLogFileToolStripMenuItem.Text = "Print Log File";
+            this.printLogFileToolStripMenuItem.Click += new System.EventHandler(this.printLogFileToolStripMenuItem_Click);
+            // 
+            // quitToolStripMenuItem
+            // 
+            this.quitToolStripMenuItem.Name = "quitToolStripMenuItem";
+            this.quitToolStripMenuItem.Size = new System.Drawing.Size(42, 20);
+            this.quitToolStripMenuItem.Text = "Quit";
+            this.quitToolStripMenuItem.Click += new System.EventHandler(this.btnQuit_Click);
             // 
             // Form1
             // 
@@ -249,6 +267,8 @@
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem settingsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem printLogFileToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem quitToolStripMenuItem;
     }
 }
 

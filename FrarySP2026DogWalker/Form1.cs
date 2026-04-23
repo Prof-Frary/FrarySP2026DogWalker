@@ -122,7 +122,7 @@ namespace FrarySP2026DogWalker
             string lastName = "";
             char c = 's';
             int i = (int)c; //converts a character to its numeric value
-            c = (char) i; // converts an interger to its ascii char
+            c = (char)i; // converts an interger to its ascii char
             //ica 4
             //timesGood is an indication as to whether
             //timesPerWeek was entered as a number 
@@ -137,7 +137,7 @@ namespace FrarySP2026DogWalker
             // to do things like find the length of the string,
             // change case, etc.
             // each letter in the string can be located by its index as shown above
-           
+
             int len = name.Length;// this will return the length of the string - in this case 17
             int posSpace = dogOwner.IndexOf(" ");// this will return the position of the first space - in this case 6
             if (posSpace != -1)
@@ -379,6 +379,42 @@ namespace FrarySP2026DogWalker
             setSettings();
             // shows the second form
             settingForm.ShowDialog();
+        }
+
+        private void printLogFileToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            //read in all log entries to the ARRAY 
+
+            string[] DogWalkerLogEntries;
+            const int MAX_ENTRIES = 2000;
+            DogWalkerLogEntries = new string[MAX_ENTRIES];
+            StreamReader sr = File.OpenText(dwLogFile);
+            int numEntries = 0;
+            while (!sr.EndOfStream)
+            {
+                DogWalkerLogEntries[numEntries] = sr.ReadLine();
+                numEntries++;
+            }
+            sr.Close();
+            string rbOutputText = "The service selected is: " + dogServiceType;
+            int rbTextLine = 2;
+            int endTransLine = 3;
+            int transSize = 6;
+            // output the array to the list box
+            for (int i = rbTextLine; i < numEntries; i+=transSize)
+            {
+                if (DogWalkerLogEntries[i] == rbOutputText)
+                {
+                    for (int j = i - rbTextLine; j <= i + endTransLine; j++)
+                    {
+                        lstOut.Items.Add(DogWalkerLogEntries[j]);
+                    }
+                   
+                   
+                }
+
+            }
+
         }
     }
 } // end of namespace

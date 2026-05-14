@@ -68,6 +68,9 @@ namespace FrarySP2026DogWalker
         const string DOG_WALK = "Dog Walk";
         const string DOG_PARK = "Dog Park";
         const string PET_SITTING = "Pet Sitting";
+        const int LISTBOX = 1;
+        const int FILE = 2;
+        const int BOTH = 3;
         //ica 7
         private decimal dogWalkPrice = 25;
         private decimal dogParkPrice = 30;
@@ -180,37 +183,17 @@ namespace FrarySP2026DogWalker
                     }
                     // if user entered a valid numeric do all regular processing
                     totalPrice = servicePrice * timesPerWeek;
-
+                    outputMessage("************* Beginning of transaction at " + DateTime.Now.ToString("G") + "*************", FILE);
                     // output all variables to list box and make sure it is formatted
-                    lstOut.Items.Add("The Dog Owner's Name is: " + dogOwner);
-                    lstOut.Items.Add("First Name: " + firstName);
-                    lstOut.Items.Add("Last Name: " + lastName);
-                    // ica 5
-                    lstOut.Items.Add("The service selected is: " + dogServiceType);
-                    //ica3
-                    lstOut.Items.Add("The Service Price is: " + servicePrice.ToString("C"));
-                    lstOut.Items.Add("The Number of Times Per Week is: " + timesPerWeek.ToString("N0"));
-                    lstOut.Items.Add("The Total Price for the week is: " + totalPrice.ToString("C"));
-                    /*
-                     lstOut.Items.Add(DateTime.Now.ToString("D"));
-                     lstOut.Items.Add(DateTime.Now.ToString("d"));
-                     lstOut.Items.Add(DateTime.Now.ToString("T"));
-                     lstOut.Items.Add(DateTime.Now.ToString("t"));
-                     lstOut.Items.Add(DateTime.Now.ToString("G"));
-                    */
-                    //ICA 6 - writing output to a file
-                    StreamWriter sw;
-                    // opens the file to append to the end
+                    outputMessage("The Dog Owner's Name is: " + dogOwner, BOTH);
+                    outputMessage("First Name: " + firstName, LISTBOX);
+                    outputMessage("Last Name: " + lastName, LISTBOX);
 
-                    sw = File.AppendText(dwLogFile);
-                    sw.WriteLine("************* Beginning of transaction at " +
-                        DateTime.Now.ToString("G") + "*************");
-                    sw.WriteLine("The Dog Owner's Name is: " + dogOwner);
-                    sw.WriteLine("The service selected is: " + dogServiceType);
-                    sw.WriteLine("The Service Price is: " + servicePrice.ToString("C"));
-                    sw.WriteLine("The Number of Times Per Week is: " + timesPerWeek.ToString("N0"));
-                    sw.WriteLine("The Total Price for the week is: " + totalPrice.ToString("C"));
-                    sw.Close();
+                    outputMessage("The service selected is: " + dogServiceType, BOTH);
+                    outputMessage("The Service Price is: " + servicePrice.ToString("C"), BOTH);
+                    outputMessage("The Number of Times Per Week is: " + timesPerWeek.ToString("N0"), BOTH);
+                    outputMessage("The Total Price for the week is: " + totalPrice.ToString("C"), BOTH);
+                  
 
 
                     // this gives the clear button the focus
@@ -235,7 +218,19 @@ namespace FrarySP2026DogWalker
             }
         }
 
-
+        private void outputMessage(string message, int Location)
+        {
+            if (Location == LISTBOX || Location == BOTH)
+            {
+                lstOut.Items.Add(message);
+            }
+            if ( Location == FILE || Location == BOTH)
+            {
+                StreamWriter sw = File.AppendText(dwLogFile);
+                sw.WriteLine(message);
+                sw.Close();
+            }
+        }
         private void btnQuit_Click(object sender, EventArgs e)
         {
             //ICA 4
